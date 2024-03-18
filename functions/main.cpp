@@ -1,6 +1,7 @@
 #include<iostream>
+#define man
 using namespace std;
-int sum(int a, int b);
+int sum(int a, int b, int c =0);
 int diff(int a, int b);
 int prod(int a, int b);
 double quote(int a, int b);
@@ -19,7 +20,7 @@ void main()
 	cout << a << "*" << b << "=" << prod(a, b) << endl;
 	cout << a << "/" << b << "=" << quote(a, b);
 #endif
-	int a,b;
+	
 	cout << "Enter the number: "; cin >> a;
 	cout << "And the power: "; cin >> b;
 	cout << fac(a) << endl;
@@ -46,10 +47,10 @@ double fac(int a)
 	for (int i = a-1; i > 0; i--)a *=i;
 	return a;
 }
-int sum(int a, int b)
+int sum(int a, int b, int c)
 {
-	int c = a + b;
-	return c;
+	int d = a + b;
+	return d;
 }
 int diff(int a, int b)
 {

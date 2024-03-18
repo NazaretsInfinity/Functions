@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8f17347f-e23a-42ae-8d3f-140febaf32ad}</ProjectGuid>
-    <RootNamespace>dostuff</RootNamespace>
+    <ProjectGuid>{37d58ee3-6aa2-4631-8834-b41947609637}</ProjectGuid>
+    <RootNamespace>TheCoolerArrays</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>arrays</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
