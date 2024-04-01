@@ -19,16 +19,17 @@ double avg(const int arr[], const int n);
 double avg(const double arr[], const int n); // double
 double avg(const char arr[], const int n); // char
 
-void shiftleft(int arr[],const int n, int c);
-void shiftleft(double arr[],const int n, int c); // double
-void shiftleft(char arr[],const int n, int c); // char
+void shift_left(int arr[],const int n, int c);
+void shift_left(double arr[],const int n, int c); // double
+void shift_left(char arr[],const int n, int c); // char
 
-void shiftright(int arr[],const int n, int c);
-void shiftright(double arr[],const int n, int c); // double
-void shiftright(char arr[],const int n, int c); // char
+void shift_right(int arr[],const int n, int c);
+void shift_right(double arr[],const int n, int c); // double
+void shift_right(char arr[],const int n, int c); // char
 
 void main()
 {
+	
 	const int n = 7;
 	double arr[n];
 	/*int minrand, maxrand;
@@ -39,10 +40,10 @@ void main()
 	cout << "Average is - " << avg(arr, n) << endl;
 	int c;
 	cout << "Size of shift: "; cin >> c;
-	shiftleft(arr, n, c);
-	shiftright(arr, n, c);
+	shift_left(arr, n, c);
+	shift_right(arr, n, c);
 }
-// int 
+
 void fillrand(int arr[], int const n, int minrand, int maxrand)
 {
 	if (maxrand < minrand)
@@ -123,7 +124,7 @@ double avg(const char arr[], const int n)
 	return (double)sum(arr, n) / n;
 }
 
-void shiftleft(int arr[], const int n, int c)
+void shift_left(int arr[], const int n, int c)
 {
 	for (int i = 0; i < c; i++)
 	{
@@ -136,7 +137,7 @@ void shiftleft(int arr[], const int n, int c)
 	}
 	print(arr, n);
 }
-void shiftleft(double arr[], const int n, int c)
+void shift_left(double arr[], const int n, int c)
 {
 	for (int i = 0; i < c; i++)
 	{
@@ -149,7 +150,7 @@ void shiftleft(double arr[], const int n, int c)
 	}
 	print(arr, n);
 }
-void shiftleft(char arr[], const int n, int c)
+void shift_left(char arr[], const int n, int c)
 {
 	for (int i = 0; i < c; i++)
 	{
@@ -163,7 +164,7 @@ void shiftleft(char arr[], const int n, int c)
 	print(arr, n);
 }
 
-void shiftright(int arr[], const int n, int c)
+void shift_right(int arr[], const int n, int c)
 {
 		for (int i = 0; i < c; i++)
 		{
@@ -176,7 +177,7 @@ void shiftright(int arr[], const int n, int c)
 		}
 		print(arr, n);
 }
-void shiftright(double arr[], const int n, int c)
+void shift_right(double arr[], const int n, int c)
 {
 	for (int i = 0; i < c; i++)
 	{
@@ -189,7 +190,7 @@ void shiftright(double arr[], const int n, int c)
 	}
 	print(arr, n);
 }
-void shiftright(char arr[], const int n, int c)
+void shift_right(char arr[], const int n, int c)
 {
 	for (int i = 0; i < c; i++)
 	{

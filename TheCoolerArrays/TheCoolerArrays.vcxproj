@@ -24,6 +24,7 @@
     <ProjectGuid>{37d58ee3-6aa2-4631-8834-b41947609637}</ProjectGuid>
     <RootNamespace>TheCoolerArrays</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>DoubleArrays</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
