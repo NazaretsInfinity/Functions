@@ -28,14 +28,14 @@ int max_value(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double max_value(const double arr[ROWS][COLS], const int ROWS, const int COLS);
 char max_value(const char arr[ROWS][COLS], const int ROWS, const int COLS);
 
-void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS,int c);
-void shift_left(double arr[ROWS][COLS], const int ROWS, const int COLS,int c);
-void shift_left(char arr[ROWS][COLS], const int ROWS, const int COLS,int c);
+void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS, int c);
+void shift_left(double arr[ROWS][COLS], const int ROWS, const int COLS, int c);
+void shift_left(char arr[ROWS][COLS], const int ROWS, const int COLS, int c);
 
 
-void shift_right(int arr[ROWS][COLS], const int ROWS, const int COLS,int c);
-void shift_right(double arr[ROWS][COLS], const int ROWS, const int COLS,int c);
-void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS,int c);
+void shift_right(int arr[ROWS][COLS], const int ROWS, const int COLS, int c);
+void shift_right(double arr[ROWS][COLS], const int ROWS, const int COLS, int c);
+void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS, int c);
 
 
 void sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
@@ -62,19 +62,19 @@ void main()
 
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
 {
-	for (int i = 0; i < ROWS; i++)for(int j = 0; j < COLS; j++)arr[i][j] =minrand + rand() % (maxrand - minrand);
+	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)arr[i][j] = minrand + rand() % (maxrand - minrand);
 }
 void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
 {
 	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)
 	{
-			arr[i][j] = minrand + rand() % (maxrand - minrand);
-			arr[i][j]/= 100;
+		arr[i][j] = minrand + rand() % (maxrand - minrand);
+		arr[i][j] /= 100;
 	}
 }
 void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
 {
-	for (int i = 0; i < ROWS; i++)for(int j = 0; j < COLS; j++)arr[i][j] = minrand + rand() % (maxrand - minrand);
+	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)arr[i][j] = minrand + rand() % (maxrand - minrand);
 }
 
 
@@ -83,7 +83,7 @@ void print(const int arr[ROWS][COLS], const int ROWS, const int COLS)
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)cout << arr[i][j] << tab;
-	    cout << endl;
+		cout << endl;
 	}
 }
 void print(const double arr[ROWS][COLS], const int ROWS, const int COLS)
@@ -91,7 +91,7 @@ void print(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)cout << arr[i][j] << tab;
-	    cout << endl;
+		cout << endl;
 	}
 }
 void print(const char arr[ROWS][COLS], const int ROWS, const int COLS)
@@ -138,7 +138,7 @@ double avg(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 
 int min_value(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	 int minValue = arr[0][0];
+	int minValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
@@ -151,16 +151,16 @@ int min_value(int arr[ROWS][COLS], const int ROWS, const int COLS)
 }
 double min_value(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	 double minValue = arr[0][0];
+	double minValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)
-		{
-			if (arr[i][j] < minValue)minValue = arr[i][j];
-		}
+	{
+		if (arr[i][j] < minValue)minValue = arr[i][j];
+	}
 	return minValue;
 }
 char min_value(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	
+
 	char minValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)
 	{
@@ -181,7 +181,7 @@ double max_value(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 	double maxValue;
 	maxValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)if (arr[i][j] > maxValue)maxValue = arr[i][j];
-    return maxValue;
+	return maxValue;
 }
 char max_value(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
@@ -191,7 +191,7 @@ char max_value(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 	return maxValue;
 }
 
-void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS,int c)
+void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
 	for (int s = 0; s < c; s++)
 	{
@@ -210,7 +210,7 @@ void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS,int c)
 				}
 			}
 		}
-		arr[ROWS-1][COLS-1] = buffer;
+		arr[ROWS - 1][COLS - 1] = buffer;
 	}
 }
 void shift_left(double arr[ROWS][COLS], const int ROWS, const int COLS, int c)
@@ -283,7 +283,7 @@ void shift_right(double arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 		}
 		arr[0][0] = buffer;
 	}
-	
+
 }
 void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
@@ -311,25 +311,30 @@ void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 void sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 
-	for (int r = 0; r < ROWS; r++)for (int c = 0; c < COLS; c++)for (int s = 0; s < ROWS; s++)
-		for (int l = 0; l < COLS; l++)if (arr[s][l] < arr[r][c])
-		{
-			int buff = arr[r][c];
-			arr[r][c] = arr[s][l];
-			arr[s][l] = buff;
-		}
+	for (int r = 0; r < ROWS; r++)
+		for (int c = 0; c < COLS; c++)
+			for (int s = 0; s < ROWS; s++)
+			{
+				for (int l = 0; l < COLS; l++)
+					if (arr[r][c] > arr[s][l])
+					{
+						int buff = arr[r][c];
+						arr[r][c] = arr[s][l];
+						arr[s][l] = buff;
+					}
+			}
 
 }
 void sort(double arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 
 	for (int r = 0; r < ROWS; r++)for (int c = 0; c < COLS; c++)for (int s = 0; s < ROWS; s++)
-				for (int l = 0; l < COLS; l++)if (arr[s][l] < arr[r][c])
-				{
-					double buff = arr[r][c];
-					arr[r][c] = arr[s][l];
-					arr[s][l] = buff;
-				}
+		for (int l = 0; l < COLS; l++)if (arr[s][l] < arr[r][c])
+		{
+			double buff = arr[r][c];
+			arr[r][c] = arr[s][l];
+			arr[s][l] = buff;
+		}
 }
 void sort(char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
