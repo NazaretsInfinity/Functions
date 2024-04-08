@@ -1,4 +1,4 @@
-#include<iostream>
+﻿#include<iostream>
 #define man
 using namespace std;
 int sum(int a, int b, int c =0);

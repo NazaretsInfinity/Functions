@@ -1,8 +1,8 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 #define tab "\t"
-const int ROWS = 3; // количество строк
-const int COLS = 4; // количество элементов строки
+const int ROWS = 3; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
+const int COLS = 4; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРєРё
 
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minrand = 0, int maxrand = 100);
 void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minrand = 0, int maxrand = 1000);
@@ -20,7 +20,7 @@ double avg(const int arr[ROWS][COLS], const int ROWS, const int COLS);
 double avg(const double arr[ROWS][COLS], const int ROWS, const int COLS);
 double avg(const char arr[ROWS][COLS], const int ROWS, const int COLS);
 
-int min_value(const int arr[ROWS][COLS], const int ROWS, const int COLS);
+int min_value(int arr[ROWS][COLS], const int ROWS, const int COLS);
 double min_value(const double arr[ROWS][COLS], const int ROWS, const int COLS);
 char min_value(const char arr[ROWS][COLS], const int ROWS, const int COLS);
 
@@ -32,9 +32,15 @@ void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS,int c);
 void shift_left(double arr[ROWS][COLS], const int ROWS, const int COLS,int c);
 void shift_left(char arr[ROWS][COLS], const int ROWS, const int COLS,int c);
 
+
 void shift_right(int arr[ROWS][COLS], const int ROWS, const int COLS,int c);
 void shift_right(double arr[ROWS][COLS], const int ROWS, const int COLS,int c);
 void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS,int c);
+
+
+void sort(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void sort(double arr[ROWS][COLS], const int ROWS, const int COLS);
+void sort(char arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void main()
 {
@@ -46,9 +52,12 @@ void main()
 	cout << "Max is " << max_value(dbl_arr, ROWS, COLS) << endl;
 	cout << "Average is " << avg(dbl_arr, ROWS, COLS) << endl;
 	int c = 5;
-	shift_left(dbl_arr, ROWS, COLS, c);
-	cout << endl;
+	/*shift_left(dbl_arr, ROWS, COLS, c);
+	print(dbl_arr, ROWS, COLS);
 	shift_right(dbl_arr, ROWS, COLS, c);
+	print(dbl_arr, ROWS, COLS);*/
+	sort(dbl_arr, ROWS, COLS);
+	print(dbl_arr, ROWS, COLS);
 }
 
 void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
@@ -127,10 +136,9 @@ double avg(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 	return (double)sum(arr, ROWS, COLS) / (ROWS * COLS);
 }
 
-int min_value(const int arr[ROWS][COLS], const int ROWS, const int COLS)
+int min_value(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	int minValue;
-	minValue = arr[0][0];
+	 int minValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)
 	{
 		for (int j = 0; j < COLS; j++)
@@ -143,8 +151,7 @@ int min_value(const int arr[ROWS][COLS], const int ROWS, const int COLS)
 }
 double min_value(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	double minValue;
-	minValue = arr[0][0];
+	 double minValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)
 		{
 			if (arr[i][j] < minValue)minValue = arr[i][j];
@@ -153,8 +160,8 @@ double min_value(const double arr[ROWS][COLS], const int ROWS, const int COLS)
 }
 char min_value(const char arr[ROWS][COLS], const int ROWS, const int COLS)
 {
-	char minValue;
-	minValue = arr[0][0];
+	
+	char minValue = arr[0][0];
 	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)
 	{
 		if (arr[i][j] < minValue)minValue = arr[i][j];
@@ -205,7 +212,6 @@ void shift_left(int arr[ROWS][COLS], const int ROWS, const int COLS,int c)
 		}
 		arr[ROWS-1][COLS-1] = buffer;
 	}
-	print(arr,ROWS,COLS);
 }
 void shift_left(double arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
@@ -228,13 +234,12 @@ void shift_left(double arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 		}
 		arr[ROWS - 1][COLS - 1] = buffer;
 	}
-	print(arr, ROWS, COLS);
 }
 void shift_left(char arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
 	for (int s = 0; s < c; s++)
 	{
-		int buffer = arr[0][0];
+		char buffer = arr[0][0];
 		for (int i = 0; i < ROWS; i++)
 		{
 			for (int j = 0; j < COLS; j++)
@@ -251,31 +256,11 @@ void shift_left(char arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 		}
 		arr[ROWS - 1][COLS - 1] = buffer;
 	}
-	print(arr, ROWS, COLS);
 }
 
 void shift_right(int arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
-	for (int s = 0; s < c; s++)
-	{
-		int buffer = arr[ROWS - 1][COLS - 1];
-		for (int i = ROWS - 1; i >= 0; i--)
-		{
-			for (int j = COLS - 1; j >= 0; j--)
-			{
-				if (j == 0)
-				{
-					arr[i][j] = arr[i - 1][COLS - 1];
-				}
-				else
-				{
-					arr[i][j] = arr[i][j - 1];
-				}
-			}
-		}
-		arr[0][0] = buffer;
-	}
-	print(arr, ROWS, COLS);
+	shift_left(arr, ROWS, COLS, ROWS * COLS - c);
 }
 void shift_right(double arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
@@ -298,7 +283,7 @@ void shift_right(double arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 		}
 		arr[0][0] = buffer;
 	}
-	print(arr, ROWS, COLS);
+	
 }
 void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 {
@@ -321,5 +306,38 @@ void shift_right(char arr[ROWS][COLS], const int ROWS, const int COLS, int c)
 		}
 		arr[0][0] = buffer;
 	}
-	print(arr, ROWS, COLS);
+}
+
+void sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+
+	for (int r = 0; r < ROWS; r++)for (int c = 0; c < COLS; c++)for (int s = 0; s < ROWS; s++)
+		for (int l = 0; l < COLS; l++)if (arr[s][l] < arr[r][c])
+		{
+			int buff = arr[r][c];
+			arr[r][c] = arr[s][l];
+			arr[s][l] = buff;
+		}
+
+}
+void sort(double arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+
+	for (int r = 0; r < ROWS; r++)for (int c = 0; c < COLS; c++)for (int s = 0; s < ROWS; s++)
+				for (int l = 0; l < COLS; l++)if (arr[s][l] < arr[r][c])
+				{
+					double buff = arr[r][c];
+					arr[r][c] = arr[s][l];
+					arr[s][l] = buff;
+				}
+}
+void sort(char arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int r = 0; r < ROWS; r++)for (int c = 0; c < COLS; c++)for (int s = 0; s < ROWS; s++)
+		for (int l = 0; l < COLS; l++)if (arr[s][l] < arr[r][c])
+		{
+			char buff = arr[r][c];
+			arr[r][c] = arr[s][l];
+			arr[s][l] = buff;
+		}
 }

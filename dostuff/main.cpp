@@ -1,6 +1,5 @@
-#include<iostream>
+﻿#include<iostream>
 using namespace std;
-
 #define tab "\t"
 
 void fillrand(int arr[], int const n, int minrand=0, int maxrand=100);
@@ -19,6 +18,8 @@ double avg(const int arr[], const int n);
 double avg(const double arr[], const int n); // double
 double avg(const char arr[], const int n); // char
 
+int min_value(const int arr[], const int n);
+
 void shift_left(int arr[],const int n, int c);
 void shift_left(double arr[],const int n, int c); // double
 void shift_left(char arr[],const int n, int c); // char
@@ -26,6 +27,10 @@ void shift_left(char arr[],const int n, int c); // char
 void shift_right(int arr[],const int n, int c);
 void shift_right(double arr[],const int n, int c); // double
 void shift_right(char arr[],const int n, int c); // char
+
+void sort(int arr[], const int n);
+void sort(double arr[], const int n);
+void sort(char arr[], const int n);
 
 void main()
 {
@@ -40,8 +45,10 @@ void main()
 	cout << "Average is - " << avg(arr, n) << endl;
 	int c;
 	cout << "Size of shift: "; cin >> c;
-	shift_left(arr, n, c);
-	shift_right(arr, n, c);
+	//shift_left(arr, n, c);
+	//shift_right(arr, n, c);
+	sort(arr, n);
+	print(arr, n);
 }
 
 void fillrand(int arr[], int const n, int minrand, int maxrand)
@@ -124,6 +131,16 @@ double avg(const char arr[], const int n)
 	return (double)sum(arr, n) / n;
 }
 
+int min_value(const int arr[], const int n)
+{
+	int minv=arr[0];
+	for (int i = 0; i < n; i++)
+	{
+		if(arr[i] < minv)minv = arr[i];
+	}
+	return minv;
+}
+
 void shift_left(int arr[], const int n, int c)
 {
 	for (int i = 0; i < c; i++)
@@ -133,9 +150,8 @@ void shift_left(int arr[], const int n, int c)
 		{
 			arr[l] = arr[l + 1];
 		}
-		arr[n - 1] = buffer;
+		 arr[n-1] = buffer;
 	}
-	print(arr, n);
 }
 void shift_left(double arr[], const int n, int c)
 {
@@ -148,7 +164,6 @@ void shift_left(double arr[], const int n, int c)
 		}
 		arr[n - 1] = buffer;
 	}
-	print(arr, n);
 }
 void shift_left(char arr[], const int n, int c)
 {
@@ -161,21 +176,11 @@ void shift_left(char arr[], const int n, int c)
 		}
 		arr[n - 1] = buffer;
 	}
-	print(arr, n);
 }
 
 void shift_right(int arr[], const int n, int c)
 {
-		for (int i = 0; i < c; i++)
-		{
-			int buffer = arr[n-1];
-			for (int l = n-1; l > 0; l--)
-			{
-				arr[l] = arr[l-1];
-			}
-			arr[0] = buffer;
-		}
-		print(arr, n);
+	shift_left(arr, n, n-c);
 }
 void shift_right(double arr[], const int n, int c)
 {
@@ -188,7 +193,6 @@ void shift_right(double arr[], const int n, int c)
 		}
 		arr[0] = buffer;
 	}
-	print(arr, n);
 }
 void shift_right(char arr[], const int n, int c)
 {
@@ -201,5 +205,34 @@ void shift_right(char arr[], const int n, int c)
 		}
 		arr[0] = buffer;
 	}
-	print(arr, n);
 }
+
+void sort(int arr[], const int n)
+{
+	for (int i = 0; i < n; i++)for (int p = i; p < n; p++)if (arr[i] > arr[p])
+	{
+		int buff = arr[i];
+		arr[i] = arr[p];
+		arr[p] = buff;
+	}
+}
+void sort(double arr[], const int n)
+{
+	for (int i = 0; i < n; i++)for (int p = i; p < n; p++)if (arr[i] > arr[p])
+	{
+		double buff = arr[i];
+		arr[i] = arr[p];
+		arr[p] = buff;
+	}
+}
+void sort(char arr[], const int n)
+{
+	for (int i = 0; i < n; i++)for (int p = i; p < n; p++)if (arr[i] > arr[p])
+	{
+		char buff = arr[i];
+		arr[i] = arr[p];
+		arr[p] = buff;
+	}
+}
+
+
