@@ -1,16 +1,7 @@
-﻿#include<iostream>
-using namespace std;
-#define ArrayOn
-#define tab "\t"
-const int ROWS = 3; // количество строк
-const int COLS = 4; // количество элементов строки
-
-void fillrand(int arr[], int const n, int minrand=0, int maxrand=100);
-void fillrand(double arr[], int const n, int minrand=0, int maxrand=1000); // double
-void fillrand(char arr[], int const n, int minrand=0, int maxrand=100); // char
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minrand = 0, int maxrand = 100);
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minrand = 0, int maxrand = 1000);
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minrand = 0, int maxrand = 100);
+﻿#include"stdafx.h"
+#include"Constants.h"
+#include"fillrand.h"
+//#include"fillrand.cpp" // никада на место вызова
 
 void print(const int arr[], const int n);
 void print(const double arr[], const int n);// double
@@ -72,10 +63,12 @@ void unique(int arr[], const int n);
 void unique(double arr[], const int n);
 void unique(char arr[], const int n);
 
+void unique(int arr[ROWS][COLS], const int ROWS,const int COLS);
+
 void main()
 {
-#ifdef ArrayOn
-	const int n = 50;
+#ifdef ArrayOff
+	const int n = 10;
 	int arr[n];
 	/*int minrand, maxrand;
 	cin >> minrand >> maxrand;*/
@@ -96,13 +89,14 @@ void main()
 	print(arr, n);
 #endif
 
-#ifdef ArrayOff
+#ifdef ArrayOn
 	const int n = 3;
 	const int m = 4;
 	int arr[n][m];
 	/*int minrand, maxrand;
 	cin >> minrand >> maxrand;*/
-	FillRand(arr, n, m);
+	//FillRand(arr, n, m);
+	unique(arr, n, m);
 	print(arr, n,m);
 	cout << "sum of the list - " << sum(arr, n,m) << endl;
 	cout << "Average is - " << avg(arr, n,m) << endl;
@@ -119,56 +113,7 @@ void main()
 #endif
 }
 
-void fillrand(int arr[], int const n, int minrand, int maxrand)
-{
-	if (maxrand < minrand)
-	{
-		int buffer = minrand;
-		minrand = maxrand;
-		maxrand = buffer;
-	}
-	for (int i = 0; i < n; i++)arr[i] = minrand + rand() % (maxrand - minrand);
-}
-void fillrand(double arr[], int const n, int minrand, int maxrand)
-{
-	if (maxrand < minrand)
-	{
-		int buffer = minrand;
-		minrand = maxrand;
-		maxrand = buffer;
-	}
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = minrand + rand() % (maxrand - minrand);
-		arr[i] /= 100;
-	}
-}
-void fillrand(char arr[], int const n, int minrand, int maxrand)
-{
-	if (maxrand < minrand)
-	{
-		int buffer = minrand;
-		minrand = maxrand;
-		maxrand = buffer;
-	}
-	for (int i = 0; i < n; i++)arr[i] = minrand + rand() % (maxrand - minrand);
-}
-void FillRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
-{
-	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)arr[i][j] = minrand + rand() % (maxrand - minrand);
-}
-void FillRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
-{
-	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)
-	{
-		arr[i][j] = minrand + rand() % (maxrand - minrand);
-		arr[i][j] /= 100;
-	}
-}
-void FillRand(char arr[ROWS][COLS], const int ROWS, const int COLS, int minrand, int maxrand)
-{
-	for (int i = 0; i < ROWS; i++)for (int j = 0; j < COLS; j++)arr[i][j] = minrand + rand() % (maxrand - minrand);
-}
+
 
 void print(const int arr[], const int n)
 {
@@ -631,9 +576,19 @@ void unique(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		arr[i] = rand() % (i + 1);
-		for (int j = 0; j < i; j++)
-			if (arr[j] == arr[i])arr[j] = i;
+		bool unique;
+		do
+		{
+			arr[i] = rand() % n;
+			unique = true;
+			for (int j = 0; j < i; j++)
+			{
+				if (arr[i] == arr[j])
+					unique = false;
+				    break;
+			}
+		} while (!unique);
+       		
 	}
 }
 void unique(double arr[], const int n)
@@ -641,7 +596,7 @@ void unique(double arr[], const int n)
 	for (int i = 0; i < n; i++)
 	{
 		arr[i] = rand() % (i + 1);
-		arr[i] /= 100;
+		arr[i] /= 1;
 		for (int j = 0; j < i; j++)
 			if (arr[j] == arr[i])arr[j] = i;
 	}
@@ -654,4 +609,25 @@ void unique(char arr[], const int n)
 		for (int j = 0; j < i; j++)
 			if (arr[j] == arr[i])arr[j] = i;
 	}
+}
+void unique(int arr[ROWS][COLS], const int ROWS, const int COLS)
+{
+	for (int i = 0; i < ROWS; i++)
+		for (int j = 0; j < COLS; j++)
+		{
+			bool unique;
+			do
+			{
+				arr[i][j] = rand() % (ROWS * COLS);
+				unique = true;
+				for (int k = 0; k <= i; k++)
+				{
+					for (int l = 0; l < (k==i ? j : COLS); l++)
+					{
+						if (arr[k][l] == arr[i][j] && l!=j)
+							unique = false;
+					}
+				}if (!unique)break;
+			} while (!unique);
+		}
 }
