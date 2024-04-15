@@ -76,7 +76,7 @@ void main()
 {
 #ifdef ArrayOn
 	const int n = 50;
-	char arr[n];
+	int arr[n];
 	/*int minrand, maxrand;
 	cin >> minrand >> maxrand;*/
 	unique(arr,n);
