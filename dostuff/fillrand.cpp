@@ -1,4 +1,3 @@
-#pragma once
 #include"fillrand.h"
 void fillrand(int arr[], int const n, int minrand, int maxrand)
 {
