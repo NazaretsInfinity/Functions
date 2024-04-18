@@ -1,52 +1,72 @@
+
 #include<iostream>
 using namespace std;
-void FillRand(int arr[],int const n=1);
-void Print(int arr[],int const n=1);
-int Sum(int arr[], int const n = 1, int sum=0);
-double Avg(int arr[], int const n=1, int sum=0);
-int minvaluein(int arr[], int const n=1);
-int maxvaluein(int arr[], int const n=1);
+template<typename T>
+void FillRand(T arr[], int const n);
+template<typename T>
+void Print(const T arr[], int const n);
+template<typename T>
+T Sum(const T arr[], int const n);
+template<typename T>
+double Avg(T arr[], int const n);
+template<typename T>
+T minvaluein(T arr[], int const n);
+template<typename T>
+T maxvaluein(T arr[], int const n);
 void main() // checking ;3
 {
 	int const s = 7;
 	int mass[s];
-	FillRand(mass,s);
-	Print(mass,s);
+	double mass2[s];
+	FillRand(mass, s);
+	FillRand(mass2, s);
+	Print(mass, s);
 	cout << endl;
-	cout << Sum(mass,s) << endl;
-	cout << Avg(mass,s) << endl;
-	cout << minvaluein(mass,s) << endl;
-	cout << maxvaluein(mass,s);
+	Print(mass2, s);
+	cout << endl;
+	cout << "Sum of the list - " << Sum(mass2, s) << endl;
+	cout << Avg(mass, s) << endl;
+	cout << minvaluein(mass, s) << endl;
+	cout << maxvaluein(mass, s);
 } // done checking
-void FillRand(int arr[], int const n)
+
+template<typename T>
+void FillRand(T arr[], int const n)
 {
-    for (int i=0; i < n; i++)arr[i] = rand();
+	for (int i = 0; i < n; i++)arr[i] = rand() % 100;
 }
-void Print(int arr[], int const n)
+
+template<typename T>
+void Print(const T arr[], int const n)
 {
 	for (int i = 0; i < n; i++)cout << arr[i] << "\t";
 }
-int Sum(int arr[],int const n, int sum)
+template<typename T>
+T Sum(const T arr[], int const n)
 {
+	T sum=0;
 	for (int i = 0; i < n; i++)sum += arr[i];
 	return sum;
 }
-double Avg(int arr[], int const n,int sum)
+template<typename T>
+double Avg(T arr[], int const n)
 {
-	double avg;
-	for (int i = 0; i < n; i++)sum += arr[i];
-	return avg = (double)sum / n;
+	double avg = (double)Sum(arr, n) / n;
+	return avg;
 }
-int minvaluein(int arr[], int const n)
+template<typename T>
+T minvaluein(T arr[], int const n)
 {
-	int min = arr[0];
+	T min = arr[0];
 	for (int i = 0; i < n; i++)if (arr[i] < min)min = arr[i];
 	return min;
 }
-int maxvaluein(int arr[], int const n)
+template<typename T>
+T maxvaluein(T arr[], int const n)
 {
-	int max = arr[0];
+	T max = arr[0];
 	for (int i = 0; i < n; i++)if (arr[i] > max)max = arr[i];
 	return max;
 }
+
 
