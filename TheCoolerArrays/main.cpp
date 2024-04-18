@@ -1,8 +1,7 @@
-
-#include<iostream>
+#include"stdafx.h"
+#include"fillrand.h"
 using namespace std;
-template<typename T>
-void FillRand(T arr[], int const n);
+
 template<typename T>
 void Print(const T arr[], int const n);
 template<typename T>
@@ -30,11 +29,7 @@ void main() // checking ;3
 	cout << maxvaluein(mass, s);
 } // done checking
 
-template<typename T>
-void FillRand(T arr[], int const n)
-{
-	for (int i = 0; i < n; i++)arr[i] = rand() % 100;
-}
+
 
 template<typename T>
 void Print(const T arr[], int const n)
