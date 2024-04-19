@@ -22,7 +22,7 @@ void main() // checking ;3
 } // done checking
 void FillRand(int arr[], int const n)
 {
-    for (int i=0; i < n; i++)arr[i] = rand()%5;
+    for (int i=0; i < n; i++)arr[i] = rand()%6;
 }
 void Print(int arr[], int const n)
 {
@@ -53,12 +53,11 @@ int maxvaluein(int arr[], int const n)
 }
 void search(int arr[], int const n)
 {
-
 	for (int i = 0; i < n; i++)
 	{
 		int same = 1;
 		int check = 0;
-		for (int l = i - 1; l >= 0; l--)if (arr[i] == arr[l])
+		for (int l = i - 1; l >= 0; l--)if(arr[i] == arr[l])
 		{
 			check++;
 			break;
