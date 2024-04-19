@@ -2,6 +2,12 @@
 using namespace std;
 template<typename T>
 void FillRand(T arr[], int const n);
+void FillRand(double arr[], int const n);
+void FillRand(char arr[], int const n);
+
+const char* Sum(const char arr[], int const n);
+const char* Avg(char arr[], int const n);
+
 template<typename T>
 void Print(const T arr[], int const n);
 template<typename T>
@@ -17,6 +23,7 @@ void main() // checking ;3
 	int const s = 7;
 	int mass[s];
 	double mass2[s];
+	char mass3[s];
 	FillRand(mass, s);
 	Print(mass, s);
 	cout << "Sum of the int list - " << Sum(mass, s) << endl;
@@ -30,6 +37,13 @@ void main() // checking ;3
 	cout << "Average of double list - " << Avg(mass2, s) << endl;
 	cout << "Min - " << minvaluein(mass2, s) << endl;
 	cout << "Max - " << maxvaluein(mass2, s);
+	cout << endl;
+	FillRand(mass3, s);
+	Print(mass3, s);
+	cout << "Sum of the char list - " << Sum(mass3, s) << endl;
+	cout << "Average of char list - " << Avg(mass3, s) << endl;
+	cout << "Min - " << minvaluein(mass3, s) << endl;
+	cout << "Max - " << maxvaluein(mass3, s);
 } // done checking
 
 template<typename T>
@@ -37,7 +51,18 @@ void FillRand(T arr[], int const n)
 {
 	for (int i = 0; i < n; i++)arr[i] = rand() % 100;
 }
-
+void FillRand(double arr[], int const n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 100;
+		arr[i] /= 100;
+	}
+}
+void FillRand(char arr[], int const n)
+{
+	for (int i = 0; i < n; i++)arr[i] = rand();
+}
 template<typename T>
 void Print(const T arr[], int const n)
 {
@@ -51,11 +76,19 @@ T Sum(const T arr[], int const n)
 	for (int i = 0; i < n; i++)sum += arr[i];
 	return sum;
 }
+const char* Sum(const char arr[], int const n)
+{
+	return "cannot summarize";
+}
 template<typename T>
 double Avg(T arr[], int const n)
 {
 	double avg = (double)Sum(arr, n) / n;
 	return avg;
+}
+const char* Avg(char arr[], int const n)
+{
+	return "cannot calculate";
 }
 template<typename T>
 T minvaluein(T arr[], int const n)
