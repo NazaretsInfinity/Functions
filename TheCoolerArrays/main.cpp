@@ -1,4 +1,3 @@
-
 #include<iostream>
 using namespace std;
 template<typename T>
@@ -19,15 +18,18 @@ void main() // checking ;3
 	int mass[s];
 	double mass2[s];
 	FillRand(mass, s);
-	FillRand(mass2, s);
 	Print(mass, s);
+	cout << "Sum of the int list - " << Sum(mass, s) << endl;
+	cout << "Average of int list - " << Avg(mass, s) << endl;
+	cout <<"Min - " <<  minvaluein(mass, s) << endl;
+	cout << "Max - " << maxvaluein(mass, s);
 	cout << endl;
+	FillRand(mass2, s);
 	Print(mass2, s);
-	cout << endl;
-	cout << "Sum of the list - " << Sum(mass2, s) << endl;
-	cout << Avg(mass, s) << endl;
-	cout << minvaluein(mass, s) << endl;
-	cout << maxvaluein(mass, s);
+	cout << "Sum of the double list - " << Sum(mass2, s) << endl;
+	cout << "Average of double list - " << Avg(mass2, s) << endl;
+	cout << "Min - " << minvaluein(mass2, s) << endl;
+	cout << "Max - " << maxvaluein(mass2, s);
 } // done checking
 
 template<typename T>
@@ -40,6 +42,7 @@ template<typename T>
 void Print(const T arr[], int const n)
 {
 	for (int i = 0; i < n; i++)cout << arr[i] << "\t";
+	cout << endl;
 }
 template<typename T>
 T Sum(const T arr[], int const n)
