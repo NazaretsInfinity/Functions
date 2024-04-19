@@ -127,15 +127,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="avg.cpp" />
     <ClCompile Include="fillrand.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="max.cpp" />
+    <ClCompile Include="min.cpp" />
+    <ClCompile Include="print.cpp" />
+    <ClCompile Include="sum.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="avg.h" />
     <ClInclude Include="fillrand.h">
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </DeploymentContent>
     </ClInclude>
+    <ClInclude Include="max.h" />
+    <ClInclude Include="min.h" />
+    <ClInclude Include="print.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="sum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

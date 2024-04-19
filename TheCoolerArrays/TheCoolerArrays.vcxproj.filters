@@ -21,12 +21,42 @@
     <ClCompile Include="fillrand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="print.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="avg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="min.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="max.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fillrand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="avg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="min.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="max.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
