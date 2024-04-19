@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
-void FillRand(int arr[],int const n=1);
-void Print(int arr[],int const n=1);
-int Sum(int arr[], int const n = 1, int sum=0);
-double Avg(int arr[], int const n=1, int sum=0);
-int minvaluein(int arr[], int const n=1);
-int maxvaluein(int arr[], int const n=1);
+void FillRand(int arr[],int const n);
+void Print(int arr[],int const n);
+int Sum(int arr[], int const n);
+double Avg(int arr[], int const n);
+int minvaluein(int arr[], int const n);
+int maxvaluein(int arr[], int const n);
 void search(int arr[], int const);
 void main() // checking ;3
 {
@@ -14,10 +14,10 @@ void main() // checking ;3
 	FillRand(mass,s);
 	Print(mass,s);
 	cout << endl;
-	cout << Sum(mass,s) << endl;
-	cout << Avg(mass,s) << endl;
-	cout << minvaluein(mass,s) << endl;
-	cout << maxvaluein(mass,s) << endl;
+	cout << "Sum of the list - " << Sum(mass, s) << endl;
+	cout << "Average - "<<Avg(mass, s) << endl;
+	cout <<"Min - "<< minvaluein(mass, s) << endl;
+	cout << "Max - "<< maxvaluein(mass, s) << endl;
 	search(mass, s);
 } // done checking
 void FillRand(int arr[], int const n)
@@ -28,16 +28,16 @@ void Print(int arr[], int const n)
 {
 	for (int i = 0; i < n; i++)cout << arr[i] << "\t";
 }
-int Sum(int arr[],int const n, int sum)
+int Sum(int arr[],int const n)
 {
+	int sum=0;
 	for (int i = 0; i < n; i++)sum += arr[i];
 	return sum;
 }
-double Avg(int arr[], int const n,int sum)
+double Avg(int arr[], int const n)
 {
-	double avg;
-	for (int i = 0; i < n; i++)sum += arr[i];
-	return avg = (double)sum / n;
+	double avg = (double)Sum(arr, n) / n;
+	return avg;
 }
 int minvaluein(int arr[], int const n)
 {
