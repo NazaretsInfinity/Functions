@@ -1,9 +1,15 @@
 #include"fillrand.h"
+#include"fillrand.cpp"
 #include"print.h"
+#include"print.cpp"
 #include"sum.h"
+#include"sum.cpp"
 #include"avg.h"
+#include"avg.cpp"
 #include"min.h"
+#include"min.cpp"
 #include"max.h"
+#include"max.cpp"
 
 
 void main() // checking ;3

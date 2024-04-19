@@ -1,3 +1,4 @@
+#include"avg.h"
 template<typename T>
 double Avg(const T arr[], int const n)
 {

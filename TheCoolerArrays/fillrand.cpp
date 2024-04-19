@@ -1,4 +1,4 @@
-#include"stdafx.h"
+#include"fillrand.h"
 template<typename T>
 void FillRand(T arr[], int const n)
 {
