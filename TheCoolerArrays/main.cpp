@@ -18,13 +18,18 @@ void main() // checking ;3
 	int mass[s];
 	double mass2[s];
     FillRand(mass, s);
-	FillRand(mass2, s);
 	Print(mass, s);
-	Print(mass2, s);
 	cout << "Sum of the list - " << Sum(mass, s) << endl;
-	cout << Avg(mass, s) << endl;
-	cout << minvaluein(mass, s) << endl;
-	cout << maxvaluein(mass, s);
+	cout <<"Average - " << Avg(mass, s) << endl;
+	cout <<"Min - "<< minvaluein(mass, s) << endl;
+	cout <<"Max - "<< maxvaluein(mass, s);
+	cout << endl;
+	FillRand(mass2, s);
+	Print(mass2, s);
+	cout << "Sum of the double list - " << Sum(mass2, s) << endl;
+	cout << "Average of double list - " << Avg(mass2, s) << endl;
+	cout << "Min - " << minvaluein(mass2, s) << endl;
+	cout << "Max - " << maxvaluein(mass2, s);
 } // done checking
 
 
